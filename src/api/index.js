@@ -1,5 +1,6 @@
 import axios from 'axios'
-const serve = 'http://139.9.146.62:3000'
+// const serve = 'http://139.9.146.62:3000'
+const serve = 'http://127.0.0.1:3000'
 
 export function request(config) {
     let headers = {

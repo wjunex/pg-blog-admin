@@ -25,7 +25,15 @@ const menuList = ref([
     url: '/'
   },
   {
-    name: '关于',
+    name: '写文章',
+    url: '/article'
+  },
+  {
+    name: '文章管理',
+    url: '/blog'
+  },
+  {
+    name: '博客分类管理',
     url: '/about'
   }
 ])
@@ -36,6 +44,11 @@ const menuList = ref([
   color: rgb(191, 203, 217);
   background-color: rgb(48, 65, 86);
   height: 100vh;
+  width: 200px;
+
+  position: fixed;
+  top: 0;
+  left: 0;
 
   .logo {
     width: 100%;

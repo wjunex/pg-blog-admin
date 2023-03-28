@@ -28,4 +28,6 @@ import Aside from './components/Aside.vue'
   align-items: center;
   padding: 0;
 }
+
+
 </style>
