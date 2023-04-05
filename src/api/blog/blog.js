@@ -9,7 +9,6 @@ export function getBlogList(params) {
   });
 }
 
-// 查询分类列表
 export function addBlog(data) {
   return request({
     url: '/api/blog/addBlog',

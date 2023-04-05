@@ -32,10 +32,6 @@ const menuList = ref([
     name: '文章管理',
     url: '/blog'
   },
-  {
-    name: '博客分类管理',
-    url: '/about'
-  }
 ])
 </script>
 

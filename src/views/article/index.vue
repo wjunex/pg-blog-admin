@@ -4,13 +4,13 @@
       <el-form-item label="文章标题" prop="title">
         <el-input v-model="formData.title" placeholder="请输入文章标题" />
       </el-form-item>
-      <el-form-item label="文章分类" prop="category">
+      <!-- <el-form-item label="文章分类" prop="category">
         <el-select v-model="formData.category" placeholder="请选择文章分类">
           <el-option v-for="item in categoryList" :key="item.id" :label="item.name" :value="String(item.id)" />
         </el-select>
-      </el-form-item>
-      <el-form-item label="文章摘要" prop="describes">
-        <el-input v-model="formData.describes" type="textarea" placeholder="文章摘要..." />
+      </el-form-item> -->
+      <el-form-item label="文章摘要" prop="summary">
+        <el-input v-model="formData.summary" type="textarea" placeholder="文章摘要..." />
       </el-form-item>
       <!-- <el-form-item label="文章封面">
       </el-form-item> -->
@@ -19,7 +19,7 @@
       </el-form-item>
 
       <el-form-item label="是否公开">
-        <el-switch v-model="formData.isPublic" :active-value="1" :inactive-value="0" />
+        <el-switch v-model="formData.is_public" :active-value="1" :inactive-value="0" />
       </el-form-item>
       <el-form-item>
         <el-button>存草稿</el-button>
@@ -31,16 +31,16 @@
 
 <script setup>
 import { ref, reactive, onMounted } from 'vue';
-import { getCategoryList } from '@/api/blog/category';
+// import { getCategoryList } from '@/api/blog/category';
 import { ElMessage } from 'element-plus'
-import { addBlog } from '@/api/blog/article'
+import { addBlog } from '@/api/blog/blog'
 
 
 const categoryList = ref([])
 onMounted(async () => {
-  getCategoryList().then(res => {
-    categoryList.value = res.data
-  })
+  // getCategoryList().then(res => {
+  //   categoryList.value = res.data
+  // })
   // categoryList.value = (await getCategoryList()).data
 })
 
@@ -50,14 +50,14 @@ const formData = reactive({
   title: '',
   content: '',
   category: '',
-  isPublic: 0,
-  img: 'https://w.wallhaven.cc/full/d6/wallhaven-d66eej.jpg',
-  describes: ''
+  is_public: 0,
+  cover: 'https://w.wallhaven.cc/full/d6/wallhaven-d66eej.jpg',
+  summary: ''
 })
 const rules = reactive({
   title: [{ required: true, message: '请输入文章标题', tirgger: 'blur' }],
   category: [{ required: true, message: '请选择文章分类', tirgger: 'blur' }],
-  describes: [{ required: true, message: '请选择文章分类', tirgger: 'blur' }],
+  summary: [{ required: true, message: '请选择文章分类', tirgger: 'blur' }],
 })
 
 const onSubmit = async (formEl) => {
